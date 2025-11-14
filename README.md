@@ -75,3 +75,96 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Contributors
 - [Obada Kraishan](https://github.com/obadaKraishan)
+
+
+
+
+
+
+
+
+
+
+
+🟦 1. Dockerfile
+
+For basic PHP project without frameworks like Laravel:
+
+FROM php:8.2-apache
+
+# Enable Apache mod_rewrite (important for routing)
+RUN a2enmod rewrite
+
+# Copy project files to Apache directory
+COPY . /var/www/html/
+
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html/
+
+EXPOSE 80
+
+🟧 2. .dockerignore
+vendor
+node_modules
+composer.lock
+Dockerfile
+docker-compose.yml
+
+🟩 3. Build Docker Image
+
+Terminal me project folder se:
+
+docker build -t myphpapp .
+
+🟪 4. Run Container
+docker run -p 8080:80 myphpapp
+
+
+Open browser:
+
+👉 http://localhost:8080
+
+⭐ If PHP project uses MySQL Database, use docker-compose:
+🟨 docker-compose.yml
+version: '3.8'
+
+services:
+  php:
+    build: .
+    container_name: php_app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: todo
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+
+⭐ PHP + MySQL Start Command
+docker-compose up --build
+
+
+Your PHP app runs on:
+
+👉 http://localhost:8080
+
+Database runs on:
+
+👉 localhost:3306
+User: root
+Password: root
+DB: todo
