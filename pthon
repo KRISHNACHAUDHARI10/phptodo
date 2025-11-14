@@ -1,0 +1,84 @@
+python run eate folder in Windows
+Create a folder:
+C:\docker_lab6
+
+Inside this folder, create:
+app.py
+requirements.txt
+
+
+🟩 STEP 2 — Create Python App (app.py)
+Use this simple Flask app:
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Python App Running Successfully — Windows & Linux Demo!"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+
+
+🟧 STEP 3 — requirements.txt
+flask
+
+
+🟥 STEP 4 — Install Python dependencies (Windows)
+Open PowerShell:
+cd C:\docker_lab6
+pip install -r requirements.txt
+
+
+🟨 STEP 5 — Run the app (Windows)
+python app.py
+
+Open browser:
+👉 http://localhost:5000
+You will see:
+Python App Running Successfully — Windows & Linux Demo!
+
+📸 Take Screenshot #1: Windows terminal
+📸 Take Screenshot #2: Windows browser output
+
+🟩 STEP 6 — Migrate to Linux
+Copy folder C:\docker_lab6 to Linux:
+Destination must be:
+/home/student/docker_lab6
+
+You can move it using:
+
+
+SCP
+
+
+Shared folder
+
+
+USB
+
+
+GitHub
+
+
+Google Drive
+(any method is allowed)
+
+
+
+🟦 STEP 7 — Install Python dependencies in Linux
+Open Linux terminal:
+cd /home/student/docker_lab6
+pip3 install -r requirements.txt
+
+(Use sudo if required)
+
+🟪 STEP 8 — Run the app on Linux
+python3 app.py
+
+Open browser:
+👉 http://localhost:5000
+
+
+👉 If you want, I can generate a PDF report with steps + screenshots placeholders for submission.
