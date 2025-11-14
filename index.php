@@ -26,7 +26,7 @@ $tasks = getTasks($conn);
                         </div>
                     </li>
                 <?php endwhile; ?>
-            </ul>
+            </ul>l
         </div>
     </div>
 </div>
